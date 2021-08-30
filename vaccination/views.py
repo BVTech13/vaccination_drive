@@ -93,7 +93,7 @@ def cancelAppointment(request):
     user_serializer = userSerializer(user_data, many=False)
     dose=findDoseStatus(user_serializer.data)
     if dose == None:
-        return JsonResponse("Nothing to cancel!",safe=False)
+        return JsonResponse({'status':200,'response':"Nothing to cancel"}, safe=False)
     else:
         c=cancelApp(user_serializer.data,dose)
         if c == True:
