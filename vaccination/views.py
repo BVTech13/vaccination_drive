@@ -29,7 +29,7 @@ def CreateUser(request):
             id = get_random_string(12)
             user.objects.create(register_number = id, user_id=register["aadhar_number"])
             return JsonResponse({'status':200,'response':"Registarion has been completed successfully and your beneficiary ID is "+ id},safe=False)
-        return JsonResponse({'status':400,'response':"Failed to Add"},safe=False)
+        return JsonResponse({'status':500,'response':"Failed to Add"},safe=False)
     else:
         return JsonResponse({'status':200,'response':"Your not allowed to register for vaccination since you are below 45!"},safe=False)
 
@@ -84,7 +84,7 @@ def upadteStatus(request):
         if user_serializer.is_valid():
             user_serializer.save()
             return JsonResponse({'status':200,'response':"Successfully upadated!"}, safe=False)
-        return JsonResponse({'status':400,'response':"Failed to update!"}, safe=False)
+        return JsonResponse({'status':500,'response':"Failed to update!"}, safe=False)
 
 @api_view(['POST'])
 def cancelAppointment(request):
@@ -104,7 +104,7 @@ def cancelAppointment(request):
             if user_serializer.is_valid():
                 user_serializer.save()
                 return JsonResponse({'status':200,'response':"Successfully cancelled appointment"}, safe=False)
-            return JsonResponse({'status':400,'response':"Failed to update!"}, safe=False)
+            return JsonResponse({'status':500,'response':"Failed to update!"}, safe=False)
         return JsonResponse({'status':200,'response':"Nothing to cancel"}, safe=False)
 
 
