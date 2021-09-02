@@ -1,0 +1,54 @@
+pre-request to install software in your machine:
+python 3.5 or above
+mysql
+vs code(develop code)
+postman to test api's
+install python packages like django,djangorestframework,pymysql
+db 'HOST': '127.0.0.1',
+db 'PORT': '3306'
+App host IP:127.0.0.1
+App port:8000
+
+
+API's:
+1.Create user:
+	methos : POST
+	api: http://127.0.0.1:8000/vaccination/createuser
+	body: 
+	{
+        "aadhar_number": 1239876440560,
+        "user_name": "Balachandar SR",
+        "user_dob": "1967-04-07",
+        "phone_number": 7077089817
+    	}
+
+2.get user by ID:
+	method: GET
+	api: http://127.0.0.1:8000/vaccination/getuser/<id>
+3.getalluser
+	method: GET
+	api: http://127.0.0.1:8000/vaccination/getalluser
+4.register for vaccination
+	method: POST
+	api:http://127.0.0.1:8000/vaccination/register
+	body:
+ 	{
+        "BID": "",
+        "slot": "6pmto8pm",
+        "date": "2021-09-10"
+ 	 }
+5.update vaccination status
+	method: POST
+	api:http://127.0.0.1:8000/vaccination/update
+	body:
+ 	{
+        "BID": ""
+ 	 }
+6. cancel registration
+	method: POST
+	api:http://127.0.0.1:8000/vaccination/cancel
+	body:
+ 	{
+        "BID": ""
+ 	 }
+
